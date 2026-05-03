@@ -1,0 +1,21 @@
+export type RootStackParamList = {
+  Login: undefined;
+  Home: undefined;
+  Stores: undefined;
+  StoreDetails: { storeId: string };
+  ProductDetails: { storeId: string; productId: string };
+  Cart: undefined;
+  Checkout: undefined;
+  Orders: undefined;
+  OrderTracking: { orderId: string };
+  Receipts: undefined;
+  Notifications: undefined;
+  Addresses: undefined;
+  UrgentNeeds: undefined;
+  RequestAnything: undefined;
+  HelpMeFindIt: undefined;
+  Favorites: undefined;
+  ScheduledDelivery: undefined;
+  Profile: undefined;
+  Support: undefined;
+};

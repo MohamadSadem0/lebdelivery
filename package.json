@@ -1,0 +1,28 @@
+{
+  "name": "lebanon-platform",
+  "private": true,
+  "workspaces": [
+    "apps/client-mobile",
+    "apps/client-web",
+    "apps/delivery-web",
+    "apps/driver-mobile",
+    "apps/business-dashboard",
+    "apps/admin-dashboard",
+    "packages/shared-types"
+  ],
+  "scripts": {
+    "backend": "mvn -f backend/pom.xml spring-boot:run",
+    "dev:services": "docker compose up -d",
+    "business": "npm --workspace apps/business-dashboard run dev",
+    "admin": "npm --workspace apps/admin-dashboard run dev",
+    "client": "npm --workspace apps/client-mobile start",
+    "client-web": "npm --workspace apps/client-web run dev",
+    "delivery-web": "npm --workspace apps/delivery-web run dev",
+    "driver": "npm --workspace apps/driver-mobile start",
+    "shared-types:build": "npm --workspace packages/shared-types run build",
+    "typecheck:client-web": "npm --workspace apps/client-web run typecheck",
+    "typecheck:delivery-web": "npm --workspace apps/delivery-web run typecheck",
+    "typecheck:business": "npm --workspace apps/business-dashboard run typecheck",
+    "typecheck:admin": "npm --workspace apps/admin-dashboard run typecheck"
+  }
+}

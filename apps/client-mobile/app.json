@@ -1,0 +1,17 @@
+{
+  "expo": {
+    "name": "Lebanon Platform Client",
+    "slug": "lebanon-platform-client",
+    "scheme": "lebanonclient",
+    "version": "0.0.1",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.lebanonplatform.client"
+    }
+  }
+}

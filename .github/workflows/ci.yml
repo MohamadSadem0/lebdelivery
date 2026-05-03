@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - "codex/**"
+
+jobs:
+  backend:
+    name: Backend tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+
+      - name: Test backend
+        run: mvn -f backend/pom.xml test
+
+  frontend:
+    name: Frontend type checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build shared types
+        run: npm run shared-types:build
+
+      - name: Typecheck client mobile
+        run: npm --workspace apps/client-mobile run typecheck
+
+      - name: Typecheck client web
+        run: npm --workspace apps/client-web run typecheck
+
+      - name: Typecheck driver mobile
+        run: npm --workspace apps/driver-mobile run typecheck
+
+      - name: Typecheck delivery web
+        run: npm --workspace apps/delivery-web run typecheck
+
+      - name: Typecheck business dashboard
+        run: npm --workspace apps/business-dashboard run typecheck
+
+      - name: Typecheck admin dashboard
+        run: npm --workspace apps/admin-dashboard run typecheck

@@ -1,0 +1,17 @@
+{
+  "expo": {
+    "name": "Lebanon Platform Driver",
+    "slug": "lebanon-platform-driver",
+    "scheme": "lebanondriver",
+    "version": "0.0.1",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.lebanonplatform.driver"
+    }
+  }
+}
