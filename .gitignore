@@ -8,6 +8,10 @@ Thumbs.db
 !.env.example
 !.env.*.example
 
+# Local planning/source documents that should stay on the developer machine
+/[0-9][0-9]_*.md
+/*.pdf
+
 # Java
 target/
 .mvn/wrapper/maven-wrapper.jar
